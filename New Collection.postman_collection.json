@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "3acd26d6-eba0-4bd7-9b86-f73a8748a9dd",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40695764"
+	},
+	"item": [
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"password123\",\n  \"email\": \"testuser@example.com\",\n  \"phone_number\": \"1234567890\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"signup"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:8080/signup \\\n-H \"Content-Type: application/json\" \\\n-d '{\n  \"username\": \"testuser\",\n  \"password\": \"password123\",\n  \"email\": \"testuser@example.com\",\n  \"phone_number\": \"1234567890\"\n}'\n"
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"testuser\",\n  \"password\": \"password123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:8080/login \\\n-H \"Content-Type: application/json\" \\\n-d '{\n  \"username\": \"testuser\",\n  \"password\": \"password123\"\n}'\n"
+			},
+			"response": []
+		},
+		{
+			"name": "forgot-password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"testuser@example.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/forgot-password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"forgot-password"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:8080/forgot-password \\\n-H \"Content-Type: application/json\" \\\n-d '{\n  \"email\": \"testuser@example.com\"\n}'\n"
+			},
+			"response": []
+		},
+		{
+			"name": "update-username",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"newusername\",\n  \"email\": \"testuser@example.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/update-username",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"update-username"
+					]
+				},
+				"description": "Generated from cURL: curl -X PUT http://localhost:8080/update-username \\\n-H \"Content-Type: application/json\" \\\n-d '{\n  \"username\": \"newusername\",\n  \"email\": \"testuser@example.com\"\n}'\n"
+			},
+			"response": []
+		},
+		{
+			"name": "update-email",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"newemail@example.com\",\n  \"phone_number\": \"1234567890\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/update-email",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"update-email"
+					]
+				},
+				"description": "Generated from cURL: curl -X PUT http://localhost:8080/update-email \\\n-H \"Content-Type: application/json\" \\\n-d '{\n  \"email\": \"newemail@example.com\",\n  \"phone_number\": \"1234567890\"\n}'\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/update-phone",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"phone_number\": \"0987654321\",\n  \"email\": \"newemail@example.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/update-phone",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"update-phone"
+					]
+				},
+				"description": "Generated from cURL: curl -X PUT http://localhost:8080/update-phone \\\n-H \"Content-Type: application/json\" \\\n-d '{\n  \"phone_number\": \"0987654321\",\n  \"email\": \"newemail@example.com\"\n}'\n"
+			},
+			"response": []
+		}
+	]
+}

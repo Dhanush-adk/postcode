@@ -1,0 +1,34 @@
+{
+	"info": {
+		"_postman_id": "d973f07d-0925-43ce-97af-869882c72e17",
+		"name": "trendrush",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40695764"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

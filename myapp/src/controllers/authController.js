@@ -1,37 +1,79 @@
-import * as authSvc from '../services/authService.js';
-import * as sessSvc from '../services/sessionService.js';
+import * as authService from '../services/authService.js';
+import * as sessSvc     from '../services/sessionService.js';
 
-export const initiate = async (req,res,next)=>{
-  try{
-    const {email,phone,name}=req.body;
-    if(!email&&!phone) return res.status(400).json({
-      statusCode:400,statusMessage:'Bad Request',
-      message:'Validation failed',
-      errors:[{field:'phone',message:'Either phone or email is required'}]
-    });
-    const r=await authSvc.initiate({email,phone,name});
-    res.status(r.status).json(r.body);
-  }catch(e){next(e);}
+import {
+  isValidPhone,
+  isValidEmail,
+  buildResponse
+} from '../utils/validators.js';
+
+/* ─────────────── INITIATE ─────────────────────────────── */
+
+export const initiate = async (req, res, next) => {
+  try {
+    const { email = null, phone = null, name = null } = req.body;
+
+    /* basic validation */
+    const errors = [];
+    if (!email && !phone)
+      errors.push({ field: 'phone', message: 'Either phone or email required' });
+    if (phone && !isValidPhone(phone))
+      errors.push({ field: 'phone', message: 'Must include country code and 10 digits' });
+    if (email && !isValidEmail(email))
+      errors.push({ field: 'email', message: 'Invalid e-mail format' });
+
+    if (errors.length)
+      return res
+        .status(400)
+        .json(buildResponse(400, 'Validation failed', { errors }));
+
+    const result = await authService.initiate({ email, phone, name });
+    res.status(result.status).json(result.body);
+  } catch (err) { next(err); }
 };
 
-export const verify = async (req,res,next)=>{
-  try{
-    const r=await authSvc.verify(req.body);
-    res.status(r.status).json(r.body);
-  }catch(e){next(e);}
+/* ─────────────── VERIFY ──────────────────────────────── */
+
+export const verify = async (req, res, next) => {
+  try {
+    const { email = null, phone = null, code = null, name = null } = req.body;
+
+    /* same validation (plus code) */
+    const errors = [];
+    if (!email && !phone)
+      errors.push({ field: 'phone', message: 'Either phone or email required' });
+    if (phone && !isValidPhone(phone))
+      errors.push({ field: 'phone', message: 'Must include country code and 10 digits' });
+    if (email && !isValidEmail(email))
+      errors.push({ field: 'email', message: 'Invalid e-mail format' });
+    if (!code)
+      errors.push({ field: 'code', message: 'OTP code is required' });
+
+    if (errors.length)
+      return res
+        .status(400)
+        .json(buildResponse(400, 'Validation failed', { errors }));
+
+    const result = await authService.verify({ email, phone, code, name });
+    res.status(result.status).json(result.body);
+  } catch (err) { next(err); }
 };
 
-export const refreshToken = async (req,res,next)=>{
-  try{
-    const newJwt=await sessSvc.refresh(
+/* ─────────────── REFRESH / CLOSE ─────────────────────── */
+
+export const refreshToken = async (req, res, next) => {
+  try {
+    const newJwt = await sessSvc.refresh(
       req.header('Authorization')?.split(' ')[1],
       req.body.refreshToken
     );
-    res.json({accessToken:newJwt});
-  }catch(e){next(e);}
+    res.json({ accessToken: newJwt });
+  } catch (err) { next(err); }
 };
 
-export const closeSession=async(req,res,next)=>{
-  try{await sessSvc.invalidate(req.session_id);res.json({message:'logged out'});}
-  catch(e){next(e);}
+export const closeSession = async (req, res, next) => {
+  try {
+    await sessSvc.invalidate(req.session_id);
+    res.json({ message: 'logged out' });
+  } catch (err) { next(err); }
 };

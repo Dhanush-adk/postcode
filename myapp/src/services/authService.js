@@ -122,10 +122,7 @@ export const verify = async ({ email, phone, code, name }) => {
 
   /* 1 — OTP validation */
   const otpRow = await fetchOtp({ email, phone, channel });
-  if (!otpRow)                       throw new AppError('OTP not found', 400);
-  console.log(otpRow.expires_at);
-  console.log(new Date().toUTCString());
-
+  if (!otpRow)                       throw new AppError('INVALID OTP', 400);
   if (otpRow.expires_at < new Date()) throw new AppError('OTP has expired', 400);
   if (!await bcrypt.compare(code, otpRow.code_hash))
     throw new AppError('INVALID OTP', 400);

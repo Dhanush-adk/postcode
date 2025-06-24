@@ -7,26 +7,346 @@
 	},
 	"item": [
 		{
-			"name": "register",
+			"name": "phone initiate",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":null,\"phone\":\"+17043634788\",\"name\":null}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/auth/initiate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"auth",
+						"initiate"
+					]
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "login",
+			"name": "phone verify otp",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":null,\"phone\":\"+17897890137\",\"code\":\"638680\",\"name\":null}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/auth/verify",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"auth",
+						"verify"
+					]
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "New Request",
+			"name": "email initiate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"advk@gmail.com\",\"phone\":\"+17897890137\",\"name\":\"4r5t6\"}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/auth/initiate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"auth",
+						"initiate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "email verify otp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"adk6v78@gmail.com\",\"phone\":\"+17897890137\",\"code\":\"910587\",\"name\":\"mnjioy\"}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/auth/verify",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"auth",
+						"verify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login initiate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":null,\"phone\":\"+17049303938\",\"name\":null}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/auth/initiate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"auth",
+						"initiate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login verify",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":null,\"phone\":\"+17049303996\",\"code\":\"899993\",\"name\":null}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/auth/verify",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"auth",
+						"verify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "profile",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZDc3NWFhMGMtYTE2ZS00NmJiLWJlZTYtZGZlZDEzMzJjNTYzIiwic2Vzc2lvbl9pZCI6IjAyZDJlZWEwLTdlMjUtNGMzMC05NjQ5LTI2YzgxZjMxZDFmOCIsImlhdCI6MTc1MDAzMDQ1OCwiZXhwIjoxNzUwMDMxMzU4fQ.f3M9UjpMIhKENOspi_XAT6gnlp8_a2bqblB-e2529ic"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/user/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api verify",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":null,\"phone\":\"+17049303998\",\"code\":\"934297\",\"name\":null}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://zjdndszbaj.execute-api.us-east-2.amazonaws.com/Prod/user/auth/verify",
+					"protocol": "https",
+					"host": [
+						"zjdndszbaj",
+						"execute-api",
+						"us-east-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"Prod",
+						"user",
+						"auth",
+						"verify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api initiate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":null,\"phone\":\"+17049303998\",\"name\":null}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://zjdndszbaj.execute-api.us-east-2.amazonaws.com/Prod/user/auth/initiate",
+					"protocol": "https",
+					"host": [
+						"zjdndszbaj",
+						"execute-api",
+						"us-east-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"Prod",
+						"user",
+						"auth",
+						"initiate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZDk3OGExNmUtNzI5NC00MzQ1LWFlZDctM2RjYzAwNzFhYTMzIiwic2Vzc2lvbl9pZCI6Ijc1NjA3OWMyLTNhNWEtNGU1ZS1iYjhmLWZkNjViMDJlNzI1OCIsImlhdCI6MTc1MDM1MzU0OCwiZXhwIjoxNzUwMzU0NDQ4fQ.8H1cLubON1eqImaRH-w23Rveo-t1a29T6Oe2cdz3KCI"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://zjdndszbaj.execute-api.us-east-2.amazonaws.com/Prod/user/profile",
+					"protocol": "https",
+					"host": [
+						"zjdndszbaj",
+						"execute-api",
+						"us-east-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"Prod",
+						"user",
+						"profile"
+					]
+				}
 			},
 			"response": []
 		}

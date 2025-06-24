@@ -21,6 +21,7 @@ import { createSession }               from './sessionService.js';
 import { sendSMS }                     from '../utils/smsSender.js';
 import { logger }                      from '../utils/logger.js';
 import { AppError }                    from '../utils/AppError.js';
+import { sendEmailOtp }                from '../utils/mailer.js';
 
 const OTP_TTL = 5 * 60;                        // 5 min
 const DEV = process.env.APP_ENV === 'dev';
@@ -94,7 +95,7 @@ export const initiate = async ({ email, phone }) => {
   } else {
     DEV
       ? logger.info(`[dev] email OTP ${code} → ${email}`)
-      : await sendSMS('+00000000000', `Email OTP ${code}`); // placeholder
+      : await sendEmailOtp(email, code); 
   }
 
   return {

@@ -44,3 +44,15 @@ export const buildResponse = (statusCode, message, extra = {}) => ({
   message,
   ...extra
 });
+
+
+export const isValidAddress = a => {
+  const errors = [];
+  if (!a.addressLine1) errors.push({ field: 'addressLine1', message: 'Required' });
+  if (!a.city)         errors.push({ field: 'city',         message: 'Required' });
+  if (!a.state)        errors.push({ field: 'state',        message: 'Required' });
+  if (!a.country)      errors.push({ field: 'country',      message: 'Required' });
+  if (!/^\d{5,7}$/.test(a.pincode ?? ''))
+                      errors.push({ field: 'pincode',       message: 'Invalid code' });
+  return errors;
+};

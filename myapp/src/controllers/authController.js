@@ -11,7 +11,7 @@ import {
 
 export const initiate = async (req, res, next) => {
   try {
-    const { email = null, phone = null, name = null } = req.body;
+    const { email = null, phone = null, name = null, type = 'Customer'} = req.body;
 
     /* basic validation */
     const errors = [];
@@ -27,7 +27,7 @@ export const initiate = async (req, res, next) => {
         .status(400)
         .json(buildResponse(400, 'Validation failed', { errors }));
 
-    const result = await authService.initiate({ email, phone, name });
+    const result = await authService.initiate({ email, phone, name, type});
     res.status(result.status).json(result.body);
   } catch (err) { next(err); }
 };
@@ -36,7 +36,7 @@ export const initiate = async (req, res, next) => {
 
 export const verify = async (req, res, next) => {
   try {
-    const { email = null, phone = null, code = null, name = null } = req.body;
+    const { email = null, phone = null, code = null, name = null, type = 'Customer'} = req.body;
 
     /* same validation (plus code) */
     const errors = [];
@@ -54,7 +54,7 @@ export const verify = async (req, res, next) => {
         .status(400)
         .json(buildResponse(400, 'Validation failed', { errors }));
 
-    const result = await authService.verify({ email, phone, code, name });
+    const result = await authService.verify({ email, phone, code, name, type});
     res.status(result.status).json(result.body);
   } catch (err) { next(err); }
 };

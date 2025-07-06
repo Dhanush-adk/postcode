@@ -349,6 +349,75 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Address Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "$TOKEN"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"label\":\"Home\",\n        \"addressLine1\":\"12 MG Road\",\n        \"addressLine2\":\"Near Brigade Road\",\n        \"city\":\"Bengaluru\",\n        \"state\":\"KA\",\n        \"country\":\"India\",\n        \"pincode\":\"560001\"\n      }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/address",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"address"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Address",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZmI3ZDNjZjktODIzYy00YzQyLTkyZGEtOThjNGI3YzI4OTU0Iiwic2Vzc2lvbl9pZCI6IjQ3OWIxOGM0LWM1ZGMtNGIzZi04MWFiLWU2OTc1MGYzODdhYSIsImlhdCI6MTc1MTY3NDU3NiwiZXhwIjoxNzUxNjc1NDc2fQ.M0dlzthUiSH8AnOze8hESw4d-QoXqbiP7GB3Qg-FKJM"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/address",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"address"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Address",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
 		}
 	]
 }
